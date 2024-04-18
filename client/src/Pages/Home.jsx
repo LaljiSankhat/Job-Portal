@@ -15,6 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     setIsLoding(true);
+
+    // here we can fetch data from our database we simply change the jobs.json to "http://localhost:3000/all-jobs" path
     fetch("jobs.json")
       .then((res) => res.json())
       .then((data) => {

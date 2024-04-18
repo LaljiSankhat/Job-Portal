@@ -33,7 +33,7 @@ const Navbar = () => {
             />
             <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" />
           </svg>
-          <span>JobePortal</span>
+          <span>JobPortal</span>
         </a>
 
         {/* nav items for large devices */}
