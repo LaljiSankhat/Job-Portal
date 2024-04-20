@@ -63,6 +63,14 @@ async function run() {
       res.send(jobs);
     });
 
+    // get one job by id
+    app.get("/all-jobs/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = {_id: new ObjectId(id)};
+      const result = await jobCollections.findOne(filter);
+      res.send(result);
+    });
+
     // get jobs by email
     app.get("/my-jobs/:email", async (req, res) =>{
       // console.log(req.params.email);
@@ -75,7 +83,22 @@ async function run() {
       const filter = {_id: new ObjectId(id)};
       const result = await jobCollections.deleteOne(filter);
       res.send(result);
-    })
+    });
+
+    // route for update the jobs
+    app.patch("/update-job/:id", async (req, res) => {
+      const id = req.params.id;
+      const jobData = req.body;
+      const filter = {_id: new ObjectId(id)};
+      const options = { upsert: true};
+      const updateDocument = {
+        $set: {
+          ...jobData
+        },
+      };
+      const result = await jobCollections.updateOne(filter, updateDocument, options);
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -99,6 +122,3 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
 
-
-
-// 1.34
