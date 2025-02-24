@@ -2,11 +2,11 @@ const express = require('express')
 const app = express()
 const cors = require("cors");
 const port = process.env.PORT || 3000;
-const path = require('path')
+// const path = require('path')
 require('dotenv').config()
 
 
-const __dirname2 = path.resolve();
+// const __dirname2 = path.resolve();
 
 
 app.use(express.json());
@@ -112,9 +112,9 @@ run().catch(console.dir);
 
 
 
-app.get('/', (req, res) => {
-  res.send('Hello Developers!')
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello Developers!')
+// });
 
 
 if(process.env.NODE_ENV === "production"){
