@@ -28,7 +28,7 @@ The Job Portal is a full stack web application designed to streamline the job se
    - Frontend: `cd client && npm install`
    - Backend: `cd server && npm install`
 4. Start the development server:
-   - Frontend: `cd client && npm start`
+   - Frontend: `cd client && npm run dev`
    - Backend: `cd server && npm start`
 
 ## Usage
