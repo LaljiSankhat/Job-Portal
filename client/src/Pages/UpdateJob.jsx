@@ -32,7 +32,8 @@ const UpdateJob = () => {
   const onSubmit = (data) => {
     data.skills = selectedOptions;
     // console.log(data)
-    fetch(`http://localhost:3000/update-job/${id}`, {
+    const uri = import.meta.env.MODE === 'developement' ? "http://localhost:3000" : "";
+    fetch(`${uri}/update-job/${id}`, {
       method: "PATCH",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(data)

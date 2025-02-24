@@ -2,18 +2,16 @@ const express = require('express')
 const app = express()
 const cors = require("cors");
 const port = process.env.PORT || 3000;
+const path = require('path')
 require('dotenv').config()
-// console.log(process.env)
-// console.log(process.env.DB_USER)
-// console.log(process.env.DB_PASSWORD)
 
 
-// middleware
+const __dirname2 = path.resolve();
+
+
 app.use(express.json());
 app.use(cors());
 
-// laljisankhat7510
-// pass : Xq7O3lW7o2plzSWJ
 
 
 
@@ -117,6 +115,15 @@ run().catch(console.dir);
 app.get('/', (req, res) => {
   res.send('Hello Developers!')
 });
+
+
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static(path.join(__dirname2, "../client/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname2, "../client", "dist", "index.html"))
+  })
+}
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

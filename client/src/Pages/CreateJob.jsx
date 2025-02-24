@@ -13,8 +13,9 @@ const CreateJob = () => {
 
   const onSubmit = (data) => {
     data.skills = selectedOptions;
+    const uri = import.meta.env.MODE === 'developement' ? "http://localhost:3000" : "";
     // console.log(data)
-    fetch("http://localhost:3000/post-job", {
+    fetch(`${uri}/post-job`, {
       method: "POST",
       headers: {"content-type": "application/json"},
       body: JSON.stringify(data)

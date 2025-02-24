@@ -1,0 +1,13 @@
+{
+  "name": "job_portal",
+  "version": "1.0.0",
+  "description": "The Job Portal is a full stack web application designed to streamline the job search and application process. It provides users with an intuitive platform to search for job listings, filter results, and submit applications. The application is built using modern technologies such as React.js, Node.js, and Tailwind CSS, ensuring a seamless user experience and efficient performance.",
+  "main": "index.js",
+  "scripts": {
+    "build":"npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "start":"npm run start --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -14,7 +14,8 @@ const MyJobs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3000/my-jobs/${email}`)
+    const uri = import.meta.env.MODE === 'developement' ? "http://localhost:3000" : "";
+    fetch(`${uri}/my-jobs/${email}`)
       .then((res) => res.json())
       .then((result) => {
         setJobs(result);
