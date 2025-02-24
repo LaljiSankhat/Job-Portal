@@ -15,9 +15,10 @@ const Home = () => {
 
   useEffect(() => {
     setIsLoding(true);
+    const uri = import.meta.env.MODE === 'developement' ? "http://localhost:3000" : "";
 
     // here we can fetch data from our database we simply change the jobs.json to "http://localhost:3000/all-jobs" path
-    fetch("jobs.json")
+    fetch(`${uri}/all-jobs`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
